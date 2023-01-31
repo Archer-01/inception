@@ -3,7 +3,7 @@
 if [ ! -d "/var/lib/mysql/mysql" ]; then
 	mariadb-install-db --user="mysql" --datadir="/var/lib/mysql"
 
-	mariadbd --bootstrap << END
+	mariadbd --user=mysql --bootstrap << END
 		-- Reload all privileges
 		FLUSH PRIVILEGES;
 
