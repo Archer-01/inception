@@ -1,4 +1,5 @@
 services:
+  ##################################################
   nginx:
     image: nginx
     build: ./requirements/nginx/
@@ -6,3 +7,31 @@ services:
     ports:
       - 443:443
     restart: always
+  ##################################################
+  mariadb:
+    image: mariadb
+    build: ./requirements/mariadb/
+    container_name: mariadb
+    ports:
+      - 3306:3306
+    volumes:
+      - type: volume
+        source: mariadb-vol
+        target: /var/lib/mysql
+    environment:
+      MARIADB_ROOT_PASSWORD: ${MARIADB_ROOT_PASSWORD}
+      WP_DB_NAME: ${WP_DB_NAME}
+      WP_ADMIN: ${WP_ADMIN}
+      WP_ADMIN_PASSWORD: ${WP_ADMIN_PASSWORD}
+      WP_USER: ${WP_USER}
+      WP_USER_PASSWORD: ${WP_USER_PASSWORD}
+  ##################################################
+
+volumes:
+  mariadb-vol:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /home/hhamza/data/mariadb
+
