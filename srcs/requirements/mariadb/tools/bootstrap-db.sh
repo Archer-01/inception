@@ -8,7 +8,8 @@ if [ ! -d "/var/lib/mysql/mysql" ]; then
 		FLUSH PRIVILEGES;
 
 		-- Remove anonymous users
-		DELETE FROM mysql.user WHERE User='';
+		DELETE FROM mysql.user
+			   WHERE User='';
 
 		-- Set password for the root user
 		ALTER USER 'root'@'localhost'
@@ -16,22 +17,22 @@ if [ ! -d "/var/lib/mysql/mysql" ]; then
 
 		-- Disallow root remote login
 		DELETE FROM mysql.user
-			   WHERE User='root' AND Host NOT IN (
-					'localhost', '127.0.0.1', '::1'
-			   );
+			   WHERE User='root'
+					 AND Host NOT IN ('localhost', '127.0.0.1', '::1');
 
 		DROP DATABASE IF EXISTS test;
 
 		CREATE DATABASE $WP_DB_NAME;
 
-		CREATE USER '$WP_ADMIN'@'localhost'
+		CREATE USER '$WP_ADMIN'
 			   IDENTIFIED BY '$WP_ADMIN_PASSWORD';
 
-		GRANT ALL PRIVILEGES ON *.*
-			  TO '$WP_ADMIN'@'localhost'
+		GRANT ALL PRIVILEGES
+		  	  ON $WP_DB_NAME.*
+			  TO '$WP_ADMIN'
 			  IDENTIFIED BY '$WP_ADMIN_PASSWORD';
 
-		CREATE USER '$WP_USER'@'localhost'
+		CREATE USER '$WP_USER'
 			   IDENTIFIED BY '$WP_USER_PASSWORD';
 END
 fi
