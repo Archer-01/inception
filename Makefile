@@ -15,7 +15,7 @@ clean:
 	$(DOCKER_COMPOSE) down
 
 fclean: clean
-	docker system prune --force --all
+	docker system prune --force
 	sudo rm -rf /home/hhamza/data
 
 re: fclean all
