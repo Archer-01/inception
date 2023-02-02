@@ -12,7 +12,16 @@ RUN sed -i 's/v3.16/v3.15/' /etc/apk/repositories \
 						  "mariadb-client" \
 						  "curl"
 
+RUN adduser -S nginx && addgroup -S nginx
 COPY ./conf/php-fpm.conf /etc/php7/
+
+COPY ./web/index.html /tmp/
+
+RUN curl -O "https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar" \
+	&& chmod +x wp-cli.phar \
+	&& mv wp-cli.phar /usr/local/bin/wp
+
+WORKDIR /var/www/html/wordpress
 
 COPY ./tools/bootstrap.sh /tmp/
 ENTRYPOINT [ "/tmp/bootstrap.sh" ]
