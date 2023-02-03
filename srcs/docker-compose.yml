@@ -28,14 +28,15 @@ services:
         target: /var/www/html
     environment:
       MARIADB_HOSTNAME: ${MARIADB_HOSTNAME}
+      WP_URL: ${WP_URL}
+      WP_TITLE: ${WP_TITLE}
       WP_DB_NAME: ${WP_DB_NAME}
       WP_ADMIN: ${WP_ADMIN}
       WP_ADMIN_PASSWORD: ${WP_ADMIN_PASSWORD}
-      WP_URL: ${WP_URL}
-      WP_TITLE: ${WP_TITLE}
       WP_ADMIN_EMAIL: ${WP_ADMIN_EMAIL}
       WP_USER: ${WP_USER}
       WP_USER_PASSWORD: ${WP_USER_PASSWORD}
+      WP_USER_EMAIL: ${WP_USER_EMAIL}
     networks:
       - nginx-wordpress-net
       - wordpress-mariadb-net
@@ -58,8 +59,6 @@ services:
       WP_DB_NAME: ${WP_DB_NAME}
       WP_ADMIN: ${WP_ADMIN}
       WP_ADMIN_PASSWORD: ${WP_ADMIN_PASSWORD}
-      WP_USER: ${WP_USER}
-      WP_USER_PASSWORD: ${WP_USER_PASSWORD}
     networks:
       - wordpress-mariadb-net
   ##################################################

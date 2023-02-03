@@ -31,9 +31,6 @@ if [ ! -d "/var/lib/mysql/mysql" ]; then
 		  	  ON $WP_DB_NAME.*
 			  TO '$WP_ADMIN'
 			  IDENTIFIED BY '$WP_ADMIN_PASSWORD';
-
-		CREATE USER '$WP_USER'
-			   IDENTIFIED BY '$WP_USER_PASSWORD';
 END
 fi
 
