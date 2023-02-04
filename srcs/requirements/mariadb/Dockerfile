@@ -5,5 +5,5 @@ RUN apk add --no-cache "mariadb" "mariadb-client"
 
 COPY ./conf/my.cnf /etc/
 
-COPY ./tools/bootstrap-db.sh /tmp/
-ENTRYPOINT [ "/tmp/bootstrap-db.sh" ]
+COPY ./tools/mariadb-setup.sh /tmp/
+ENTRYPOINT [ "/tmp/mariadb-setup.sh" ]

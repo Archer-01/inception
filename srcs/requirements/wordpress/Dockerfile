@@ -23,5 +23,5 @@ RUN curl -O "https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cl
 
 WORKDIR /var/www/html/wordpress
 
-COPY ./tools/bootstrap.sh /tmp/
-ENTRYPOINT [ "/tmp/bootstrap.sh" ]
+COPY ./tools/php-fpm-setup.sh /tmp/
+ENTRYPOINT [ "/tmp/php-fpm-setup.sh" ]
