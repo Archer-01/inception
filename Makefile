@@ -24,7 +24,7 @@ logs:
 	$(DOCKER_COMPOSE) logs --follow
 
 ps:
-	docker ps --all
+	$(DOCKER_COMPOSE) ps --all
 
 $(WORDPRESS_DIR):
 	mkdir -p $@
