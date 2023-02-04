@@ -13,7 +13,7 @@ if [ ! -f "/var/www/html/index.html" ]; then
 					 --dbhost=$MARIADB_HOSTNAME \
 					 --allow-root
 
-	wp core install --url=$WP_URL \
+	wp core install --url=$WP_URL/wordpress \
 					--title=$WP_TITLE \
 					--admin_user=$WP_ADMIN \
 					--admin_password=$WP_ADMIN_PASSWORD \
