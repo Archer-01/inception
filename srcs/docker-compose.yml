@@ -37,11 +37,14 @@ services:
       WP_USER: ${WP_USER}
       WP_USER_PASSWORD: ${WP_USER_PASSWORD}
       WP_USER_EMAIL: ${WP_USER_EMAIL}
+      REDIS_HOST: ${REDIS_HOST}
     networks:
       - nginx-wordpress-net
       - wordpress-mariadb-net
+      - redis-wordpress-net
     depends_on:
       - mariadb
+      - redis
     restart: always
   ##################################################
   mariadb:
@@ -61,6 +64,15 @@ services:
       WP_ADMIN_PASSWORD: ${WP_ADMIN_PASSWORD}
     networks:
       - wordpress-mariadb-net
+  ##################################################
+  redis:
+    image: redis
+    build: ./requirements/bonus/redis/
+    container_name: redis
+    ports:
+      - 6379:6379
+    networks:
+      - redis-wordpress-net
   ##################################################
 
 volumes:
@@ -83,3 +95,4 @@ volumes:
 networks:
   nginx-wordpress-net:
   wordpress-mariadb-net:
+  redis-wordpress-net:
