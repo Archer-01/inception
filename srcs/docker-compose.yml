@@ -74,6 +74,21 @@ services:
     networks:
       - redis-wordpress-net
   ##################################################
+  ftp:
+    image: ftp
+    build: ./requirements/bonus/ftp/
+    container_name: ftp
+    ports:
+      - 21:21
+      - 4141-4242:4141-4242
+    volumes:
+      - type: volume
+        source: wordpress-vol
+        target: /var/www/html
+    environment:
+      FTP_USER: ${FTP_USER}
+      FTP_PASSWORD: ${FTP_PASSWORD}
+  ##################################################
 
 volumes:
   ##################################################
