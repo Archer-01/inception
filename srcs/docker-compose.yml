@@ -92,6 +92,22 @@ services:
       FTP_PASSWORD: ${FTP_PASSWORD}
     restart: always
   ##################################################
+  portainer:
+    image: portainer
+    build: ./requirements/bonus/portainer/
+    container_name: portainer
+    ports:
+      - 8000:8000
+      - 9443:9443
+    volumes:
+      - type: bind
+        source: /var/run/docker.sock
+        target: /var/run/docker.sock
+      - type: volume
+        source: portainer-vol
+        target: /data
+    restart: always
+  ##################################################
 
 volumes:
   ##################################################
@@ -108,6 +124,13 @@ volumes:
       type: none
       o: bind
       device: /home/hhamza/data/mariadb
+  ##################################################
+  portainer-vol:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /home/hhamza/data/portainer
   ##################################################
 
 networks:
