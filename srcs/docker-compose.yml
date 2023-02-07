@@ -64,6 +64,7 @@ services:
       WP_ADMIN_PASSWORD: ${WP_ADMIN_PASSWORD}
     networks:
       - wordpress-mariadb-net
+    restart: always
   ##################################################
   redis:
     image: redis
@@ -73,6 +74,7 @@ services:
       - 6379:6379
     networks:
       - redis-wordpress-net
+    restart: always
   ##################################################
   ftp:
     image: ftp
@@ -88,6 +90,7 @@ services:
     environment:
       FTP_USER: ${FTP_USER}
       FTP_PASSWORD: ${FTP_PASSWORD}
+    restart: always
   ##################################################
 
 volumes:
