@@ -36,5 +36,5 @@ $(MARIADB_DIR):
 $(PORTAINER_DIR):
 	mkdir -p $@
 
-.PHONY: all clean fclean re logs ps $(WORDPRESS_DIR) $(MARIADB_DIR) $(PORTAINER_DIR)
+.PHONY: all clean fclean re logs ps
 .SILENT: all clean fclean re logs ps $(WORDPRESS_DIR) $(MARIADB_DIR) $(PORTAINER_DIR)
