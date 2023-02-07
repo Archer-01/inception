@@ -49,7 +49,7 @@ RUN sed -i 's/v3.16/v3.15/' /etc/apk/repositories \
 RUN adduser -S nginx && addgroup -S nginx
 COPY ./conf/php-fpm.conf /etc/php7/
 
-COPY ./web/index.html /tmp/
+COPY ./web/index.html ./web/style.css /tmp/
 
 RUN curl -O "https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar" \
 	&& chmod +x wp-cli.phar \

@@ -1,0 +1,63 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	background-image: url("https://images.pexels.com/photos/3800420/pexels-photo-3800420.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2");
+	background-repeat: repeat;
+}
+
+nav {
+	background-color: #c0c0c0;
+	padding: 1rem;
+}
+
+ul {
+	list-style-type: none;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+li {
+	display: inline;
+	margin: 0 1rem;
+}
+
+a {
+	text-decoration: none;
+	font-size: 1.5rem;
+	font-style: italic;
+	color: #555555;
+}
+
+a:visited {
+	color: #000000;
+}
+
+main {
+	padding: 1rem;
+	color: #ffffff;
+}
+
+#main-heading {
+	font-size: 1rem;
+	font-style: italic;
+	margin: 0;
+}
+
+h2 {
+	font-size: 2.2rem;
+	font-style: italic;
+	text-align: right;
+	text-decoration: underline;
+}
+
+p {
+	font-size: 1.9rem;
+	font-family: 'Roboto', sans-serif;
+}
+
+.first-letter {
+	font-size: 4rem;
+}

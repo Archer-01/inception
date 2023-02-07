@@ -6,6 +6,7 @@ done
 
 if [ ! -f "/var/www/html/index.html" ]; then
 	mv /tmp/index.html /var/www/html/
+	mv /tmp/style.css /var/www/html/
 
 	# Install WordPress
 	wp core download --allow-root
