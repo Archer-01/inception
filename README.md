@@ -9,7 +9,6 @@ Welcome to the Inception project repository! This project aims to set up a small
 - [Dockerfiles](#dockerfiles)
 - [Makefile](#makefile)
 - [Bonus Features](#bonus-features)
-- [Defensive Justification](#defensive-justification)
 
 ### Project Overview
 The infrastructure consists of the following services:
@@ -32,8 +31,6 @@ To get started with this project, follow these steps:
 - `nginx/Dockerfile`: Dockerfile for NGINX service.
 - `wordpress/Dockerfile`: Dockerfile for WordPress + php-fpm service.
 - `mariadb/Dockerfile`: Dockerfile for MariaDB service.
-- `volumes/wordpress-db`: Volume for WordPress database.
-- `volumes/wordpress-files`: Volume for WordPress website files.
 
 ### Dockerfiles
 - Each service has its own Dockerfile located in the corresponding service directory.
